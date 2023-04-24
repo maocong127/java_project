@@ -1,15 +1,4 @@
 package com.minis.context;
-
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.dom4j.Document;
-import org.dom4j.Element;
-import org.dom4j.io.SAXReader;
-
 import com.minis.beans.BeanDefinition;
 import com.minis.beans.BeanFactory;
 import com.minis.beans.NoSuchBeanDefinitionException;
