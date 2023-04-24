@@ -1,18 +1,7 @@
-## Getting Started
+# Minis
+A mini Spring platform for learning.
+We plan to implement IoC,MVC,JDBCTemplate and AOP from scratch.
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+IoC is the core of Minis. We will use a bean factory to manage all required beans.
 
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Modified in local IntelliJ IDEA.
