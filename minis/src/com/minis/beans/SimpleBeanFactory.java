@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SimpleBeanFactory implements BeanFactory{
+public class SimpleBeanFactory extends DefaultSingletonBeanRegistry implements BeanFactory{
     private List<BeanDefinition> beanDefinitions=new ArrayList<>();
     private List<String> beanNames=new ArrayList<>();
     private Map<String, Object> singletons =new HashMap<>();
@@ -31,7 +31,7 @@ public class SimpleBeanFactory implements BeanFactory{
 				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
-				singletons.put(bd.getId(),singleton);
+				this.registerSingleton(beanName, singleton);
         	}       	
         }
         return singleton;
@@ -40,5 +40,15 @@ public class SimpleBeanFactory implements BeanFactory{
     	this.beanDefinitions.add(bd);
     	this.beanNames.add(bd.getId());
     }
+
+	@Override
+	public void registerBean(String beanName, Object obj) {
+		registerSingleton(beanName, obj);
+	}
+
+	@Override
+	public boolean contaionsBean(String beanName) {
+		return containsSingleton(beanName);
+	}
     
 }
