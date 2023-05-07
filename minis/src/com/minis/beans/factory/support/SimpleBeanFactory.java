@@ -1,4 +1,4 @@
-package com.minis.beans;
+package com.minis.beans.factory.support;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -7,6 +7,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
+import com.minis.beans.factory.BeanFactory;
+import com.minis.beans.factory.config.ArgumentValue;
+import com.minis.beans.factory.config.ArgumentValues;
+import com.minis.beans.factory.config.BeanDefinition;
+import com.minis.beans.factory.config.PropertyValue;
+import com.minis.beans.factory.config.PropertyValues;
 
 public class SimpleBeanFactory extends DefaultSingletonBeanRegistry implements BeanFactory,BeanDefinitionRegistry{
     private Map<String,BeanDefinition> beanDefinitionMap= new ConcurrentHashMap<>(25);
@@ -74,7 +81,7 @@ public class SimpleBeanFactory extends DefaultSingletonBeanRegistry implements B
         Constructor<?> con = null;
         try {
             clz = Class.forName(beanDefinition.getClassName());
-            ArgumentValues argumentValues = beanDefinition.getConstructoArgumentValues();
+            ArgumentValues argumentValues = beanDefinition.getConstructorArgumentValues();
             // 如果有参数
             if (! argumentValues.isEmpty()){
                 // 获取参数类型和值
