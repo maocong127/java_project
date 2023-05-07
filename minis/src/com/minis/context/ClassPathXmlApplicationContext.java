@@ -1,5 +1,4 @@
 package com.minis.context;
-import com.minis.beans.BeanDefinition;
 import com.minis.beans.BeanFactory;
 import com.minis.beans.NoSuchBeanDefinitionException;
 import com.minis.beans.SimpleBeanFactory;
@@ -10,12 +9,19 @@ import com.minis.core.Resource;
 public class ClassPathXmlApplicationContext implements BeanFactory,ApplicationEventPublisher{
 	BeanFactory beanFactory;
 	
-    public ClassPathXmlApplicationContext(String fileName){
+	public ClassPathXmlApplicationContext(String fileName){
+		this(fileName,true);
+	}
+
+    public ClassPathXmlApplicationContext(String fileName, boolean isRefresh){
     	Resource res = new ClassPathXmlResource(fileName);
     	SimpleBeanFactory bf = new SimpleBeanFactory();
         XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(bf);
         reader.loadBeanDefinitions(res);
         this.beanFactory = bf;
+		if (isRefresh) {
+			((SimpleBeanFactory) this.beanFactory).refresh();
+		}
     }
     
 	@Override
@@ -58,6 +64,7 @@ public class ClassPathXmlApplicationContext implements BeanFactory,ApplicationEv
 	public Class<?> getType(String beanName) throws NoSuchBeanDefinitionException {
 		return null;
 	}
+
 
     
 }

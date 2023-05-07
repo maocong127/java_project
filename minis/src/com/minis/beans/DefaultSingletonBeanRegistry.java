@@ -19,7 +19,12 @@ public class DefaultSingletonBeanRegistry implements SingleBeanRegistry{
 
     @Override
     public Object getSingleton(String beanName) {
-        return this.singletonObjects.get(beanName);
+        try {
+            return this.singletonObjects.get(beanName);
+        } catch (Exception e) {
+            return null;
+        }
+        
     }
 
     @Override

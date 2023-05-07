@@ -53,4 +53,8 @@ public class BeanDefinition {
     public PropertyValues getPropertyValues() {
         return propertyValues;
     }
+
+    public void setDependsOn(String[] dependsOn) {
+        this.dependsOn = dependsOn;
+    }
 }
