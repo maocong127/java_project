@@ -38,4 +38,19 @@ public class BeanDefinition {
         return SCOPE_PROTOTYPE.equals(scope);
     }
     
+    public void setConstructoArgumentValues(ArgumentValues constructoArgumentValues) {
+        this.constructoArgumentValues = constructoArgumentValues;
+    }
+
+    public ArgumentValues getConstructoArgumentValues() {
+        return constructoArgumentValues;
+    }
+
+    public void setPropertyValues(PropertyValues propertyValues) {
+        this.propertyValues = propertyValues;
+    }
+
+    public PropertyValues getPropertyValues() {
+        return propertyValues;
+    }
 }
