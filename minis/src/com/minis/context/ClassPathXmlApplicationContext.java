@@ -7,7 +7,7 @@ import com.minis.beans.XmlBeanDefinitionReader;
 import com.minis.core.ClassPathXmlResource;
 import com.minis.core.Resource;
 
-public class ClassPathXmlApplicationContext implements BeanFactory{
+public class ClassPathXmlApplicationContext implements BeanFactory,ApplicationEventPublisher{
 	BeanFactory beanFactory;
 	
     public ClassPathXmlApplicationContext(String fileName){
@@ -37,6 +37,26 @@ public class ClassPathXmlApplicationContext implements BeanFactory{
 	@Override
 	public boolean contaionsBean(String beanName) {
 		return this.beanFactory.contaionsBean(beanName);
+	}
+
+	@Override
+	public void publishEvent(ApplicationEvent event) {
+		
+	}
+
+	@Override
+	public boolean isSingleton(String beanName) throws NoSuchBeanDefinitionException {
+		return false;
+	}
+
+	@Override
+	public boolean isPrototype(String beanName) throws NoSuchBeanDefinitionException {
+		return false;
+	}
+
+	@Override
+	public Class<?> getType(String beanName) throws NoSuchBeanDefinitionException {
+		return null;
 	}
 
     
